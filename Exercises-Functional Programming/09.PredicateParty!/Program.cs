@@ -28,10 +28,10 @@
                
                 for (int i = 0; i < people.Count; i++)
                 {
-                    
-                    
 
-                    if(filter(filterArg, people[i]))
+                    next.Add(people[i]);
+
+                    if (filter(filterArg, people[i]))
                     {
                         if (operation=="Remove")
                         {
@@ -41,7 +41,7 @@
                         if (operation=="Double")
                         {
                             next.Add(people[i]);
-                            next.Add(people[i]);
+                            
                         }
                     }
                    
