@@ -97,9 +97,9 @@ public class Car
 
     public void Drive(double distance)
     {
-        if (this._fuelQuantity -(distance*this._fuelConsumption)>0)
+        if (this._fuelQuantity -(distance*(this._fuelConsumption/100))>=0)
         {
-            this._fuelQuantity-=distance*this._fuelConsumption;
+            this._fuelQuantity-=distance*(this._fuelConsumption/100);
         }
         else
         {
@@ -109,7 +109,7 @@ public class Car
     public string WhoAmI()
     {
 
-        return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nFuel: {this.FuelQuantity:F2}\nConsumption: {this._fuelConsumption}";
+        return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nHorsePowers: {this.Engine.HorsePower}\nFuelQuantity: {this.FuelQuantity}";
     }
 
 
