@@ -15,6 +15,21 @@ public class Car
     private int _year;
     private double _fuelQuantity;
     private double _fuelConsumption;
+    private Engine _engine;
+    private Tire []_tires;
+
+    public Engine Engine
+    {
+        get { return _engine; }
+        set { _engine = value; }
+
+    }
+    public Tire[] Tires
+    {
+        get { return _tires; }
+        set { _tires = value; }
+    }
+
 
     public string Make
     {
@@ -36,15 +51,48 @@ public class Car
     public double FuelQuantity
     {
         get { return _fuelQuantity; }
-       set { _fuelQuantity = value; }
+        set { _fuelQuantity = value; }
     }
     public double FuelConsumption
     {
         get { return _fuelConsumption; }
-       set
+        set
         {
             _fuelConsumption = value;
         }
+    }
+
+
+    public Car()
+    {
+        this._make = "VW";
+
+        this._model = "Golf";
+        this._year=2025;
+        this._fuelQuantity=200;
+        this._fuelConsumption=10;
+    }
+
+    public Car(string make, string model, int year )
+   :this()
+    {
+        Make=make;
+        Model=model;
+        Year=year;
+        
+    }
+
+    public Car(string make, string model, int year, double quantity, double consumption):this(make, model, year) 
+    {
+        this._fuelConsumption=consumption;
+        this._fuelQuantity = quantity;
+    }
+    
+
+    public Car(string make, string model, int year, double fuelQuantity, double fuelConsumption, Engine engine, Tire[] tires) : this(make, model, year, fuelQuantity, fuelConsumption)
+    {
+        Engine=engine;
+        this.Tires=tires;
     }
 
     public void Drive(double distance)
@@ -61,9 +109,9 @@ public class Car
     public string WhoAmI()
     {
 
-        return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nFuel: {this.FuelQuantity:F2}";
+        return $"Make: {this.Make}\nModel: {this.Model}\nYear: {this.Year}\nFuel: {this.FuelQuantity:F2}\nConsumption: {this._fuelConsumption}";
     }
 
-    
+
 
 }
