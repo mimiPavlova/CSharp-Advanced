@@ -30,6 +30,10 @@ namespace demo
         {
             return GetEnumerator();
         }
+
+
+
+
         class Enumerator : IEnumerator<string>
         {
             private readonly List<string> _words;
