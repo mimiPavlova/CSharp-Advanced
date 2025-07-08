@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GenericScale
 {
-    public  class EqualityScale<T>
+    public  class EqualityScale<T> where T:IComparable
     {
         public T Left;
         public T Right;
